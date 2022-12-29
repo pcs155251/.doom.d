@@ -25,7 +25,7 @@
       doom-variable-pitch-font (font-spec :family "Helvetica" :size 13.5))
 ;;
 ;; set line height
-(setq-default line-spacing 0.5)
+(setq-default line-spacing 0.4)
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
