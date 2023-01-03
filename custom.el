@@ -1,5 +1,12 @@
 ;;; custom.el -*- lexical-binding: t; -*-
 
+;; new window to maximized
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
+;; switch to new buffer when splitting (vertically and horizontally)
+(global-set-key "\C-x2" (lambda () (interactive)(split-window-vertically) (other-window 1)))
+(global-set-key "\C-x3" (lambda () (interactive)(split-window-horizontally) (other-window 1)))
+
 ;; set line height
 (setq-default line-spacing 0.4)
 
