@@ -13,6 +13,7 @@
 (add-hook 'dired-mode-hook 'display-line-numbers-mode)
 
 ;; org mode settings
+(add-hook 'org-mode-hook 'variable-pitch-mode)
 (setq org-hide-emphasis-markers t)
 
 ;; automatically show org mode latex preview, work but regenerate preview everytime make it slow
