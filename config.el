@@ -22,7 +22,7 @@
 ;; accept. For example:
 ;;
 (setq doom-font (font-spec :family "Ligamononoki Nerd Font" :size 13.5 :weight 'bold)
-      doom-variable-pitch-font (font-spec :family "Helvetica" :size 13.5))
+      doom-variable-pitch-font (font-spec :family "Helvetica" :size 15))
 
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
@@ -77,3 +77,4 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
