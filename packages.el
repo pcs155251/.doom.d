@@ -49,5 +49,4 @@
 ;(unpin! t)
 
 (package! org-fragtog)
-(package! org-elp)
-(package! modus-theme)
+(package! ef-themes)
