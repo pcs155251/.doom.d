@@ -51,3 +51,7 @@
 (package! org-fragtog)
 (package! ef-themes)
 (package! tldr)
+(package! clippy)
+
+;; try but doesn't take effects
+(package! beacon)

@@ -13,14 +13,15 @@
 ;; make latex preview clear
 (setq org-preview-latex-default-process 'dvisvgm)
 
-;; org mode latex preview when start up
-(setq org-startup-with-latex-preview 't)
+;; turn on beacon tried but doesn't take effect
+;; (setq beacon-mode 1)
 
 ;; display line number in dired mode
 (add-hook 'dired-mode-hook 'display-line-numbers-mode)
 
 ;; org mode settings
 (add-hook 'org-mode-hook 'variable-pitch-mode)
+(setq org-startup-with-latex-preview 't)
 (setq org-hide-emphasis-markers t)
 
 ;; automatically show org mode latex preview, work but regenerate preview everytime make it slow
@@ -45,7 +46,7 @@
  '(org-document-info ((t (:foreground "dark orange"))))
  '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
  '(org-document-title ((t (:weight normal :foreground "mac:textColor" :font "Helvetica" :height 2.0 :underline nil))))
- '(org-done ((t (:inherit fixed-pitch))))
+ ;;'(org-done ((t (:inherit fixed-pitch))))
  '(org-drawer ((t (:inherit fixed-pitch))))
  '(org-indent ((t (:inherit (org-hide fixed-pitch)))))
  '(org-level-1 ((t (:weight normal :foreground "mac:textColor" :font "Helvetica" :height 1.1))))
@@ -62,7 +63,8 @@
  '(org-special-keyword ((t (:inherit (font-lock-comment-face fixed-pitch)))))
  '(org-table ((t (:inherit fixed-pitch :foreground "#83a598"))))
  '(org-tag ((t (:inherit (shadow variable-pitch) :height 0.9))))
- '(org-todo ((t (:inherit fixed-pitch))))
+ ;; '(org-todo ((t (:inherit fixed-pitch))))
  '(org-verbatim ((t (:inherit (shadow fixed-pitch)))))
+ ;; so that the line-number column remain constat width
  '(line-number ((t (:inherit (shadow fixed-pitch)))))
 )
