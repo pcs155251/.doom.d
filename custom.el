@@ -1,7 +1,7 @@
 ;;; custom.el -*- lexical-binding: t; -*-
 
 ;; new window to maximized
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
+;; (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 ;; switch to new buffer when splitting (vertically and horizontally)
 (global-set-key "\C-x2" (lambda () (interactive)(split-window-vertically) (other-window 1)))
@@ -21,8 +21,18 @@
 
 ;; org mode settings
 (add-hook 'org-mode-hook 'variable-pitch-mode)
-(setq org-startup-with-latex-preview 't)
+(add-hook! 'org-mode-hook (setq-local line-spacing 0.8))
+(setq org-indent-indentation-per-level 3)
 (setq org-hide-emphasis-markers t)
+(setq org-display-inline-images t)
+(setq org-redisplay-inline-images t)
+(setq org-startup-with-inline-images "inlineimages")
+(setq org-superstar-headline-bullets-list '("○" "○" "○" "○" "○" ))
+;; wired, none of below working
+;; (setq org-startup-folded 'contents)
+;; (setq org-startup-folded "fold")
+;; (setq org-startup-folded t)
+
 
 ;; automatically show org mode latex preview, work but regenerate preview everytime make it slow
 (use-package! org-fragtog
@@ -42,21 +52,31 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(org-block ((t (:inherit fixed-pitch))))
- '(org-code ((t (:inherit (shadow fixed-pitch)))))
+ '(org-code ((t (:inherit (shadow fixed-pitch) :height 1.1))))
+ '(org-verbatim ((t (:inherit (shadow fixed-pitch) :height 1.1))))
  '(org-document-info ((t (:foreground "dark orange"))))
  '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
  '(org-document-title ((t (:weight normal :foreground "mac:textColor" :font "Helvetica" :height 2.0 :underline nil))))
- ;;'(org-done ((t (:inherit fixed-pitch))))
+ ;; '(org-done ((t (:inherit fixed-pitch))))
  '(org-drawer ((t (:inherit fixed-pitch))))
  '(org-indent ((t (:inherit (org-hide fixed-pitch)))))
- '(org-level-1 ((t (:weight normal :foreground "mac:textColor" :font "Helvetica" :height 1.1))))
- '(org-level-2 ((t (:weight normal :foreground "mac:textColor" :font "Helvetica" :height 1.1))))
- '(org-level-3 ((t (:weight normal :foreground "mac:textColor" :font "Helvetica" :height 1.1))))
- '(org-level-4 ((t (:weight normal :foreground "mac:textColor" :font "Helvetica" :height 1.1))))
- '(org-level-5 ((t (:weight normal :foreground "mac:textColor" :font "Helvetica" :height 1.1))))
- '(org-level-6 ((t (:weight normal :foreground "mac:textColor" :font "Helvetica"))))
- '(org-level-7 ((t (:weight normal :foreground "mac:textColor" :font "Helvetica"))))
- '(org-level-8 ((t (:weight normal :foreground "mac:textColor" :font "Helvetica"))))
+ ;; '(org-level-1 ((t (:weight normal :foreground "mac:textColor" :font "Helvetica" :height 1.1))))
+ '(org-level-1 ((t (:inherit (variable-pitch) :height 1.1))))
+ '(org-level-2 ((t (:inherit (variable-pitch) :height 1.1))))
+ '(org-level-3 ((t (:inherit (variable-pitch) :height 1.1))))
+ '(org-level-4 ((t (:inherit (variable-pitch) :height 1.1))))
+ '(org-level-5 ((t (:inherit (variable-pitch) :height 1.1))))
+ '(org-level-6 ((t (:inherit (variable-pitch)))))
+ '(org-level-7 ((t (:inherit (variable-pitch)))))
+ '(org-level-8 ((t (:inherit (variable-pitch)))))
+ ;; '(org-level-1 ((t (:weight normal :foreground "mac:textColor" :font "Helvetica" :height 1.1))))
+ ;; '(org-level-2 ((t (:weight normal :foreground "mac:textColor" :font "Helvetica" :height 1.1))))
+ ;; '(org-level-3 ((t (:weight normal :foreground "mac:textColor" :font "Helvetica" :height 1.1))))
+ ;; '(org-level-4 ((t (:weight normal :foreground "mac:textColor" :font "Helvetica" :height 1.1))))
+ ;; '(org-level-5 ((t (:weight normal :foreground "mac:textColor" :font "Helvetica" :height 1.1))))
+ ;; '(org-level-6 ((t (:weight normal :foreground "mac:textColor" :font "Helvetica"))))
+ ;; '(org-level-7 ((t (:weight normal :foreground "mac:textColor" :font "Helvetica"))))
+ ;; '(org-level-8 ((t (:weight normal :foreground "mac:textColor" :font "Helvetica"))))
  '(org-link ((t (:foreground "royal blue" :underline t))))
  '(org-meta-line ((t (:inherit (font-lock-comment-face fixed-pitch)))))
  '(org-property-value ((t (:inherit fixed-pitch))) t)
@@ -64,7 +84,6 @@
  '(org-table ((t (:inherit fixed-pitch :foreground "#83a598"))))
  '(org-tag ((t (:inherit (shadow variable-pitch) :height 0.9))))
  ;; '(org-todo ((t (:inherit fixed-pitch))))
- '(org-verbatim ((t (:inherit (shadow fixed-pitch)))))
  ;; so that the line-number column remain constat width
  '(line-number ((t (:inherit (shadow fixed-pitch)))))
 )
