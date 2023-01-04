@@ -50,3 +50,4 @@
 
 (package! org-fragtog)
 (package! ef-themes)
+(package! tldr)
