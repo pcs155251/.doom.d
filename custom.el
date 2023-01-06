@@ -23,6 +23,10 @@
 ;; display line number in dired mode
 (add-hook 'dired-mode-hook 'display-line-numbers-mode)
 
+;; vterm
+(add-hook 'vterm-mode-hook 'display-line-numbers-mode)
+(add-hook! 'vterm-mode-hook (setq-local line-spacing 0.2))
+
 ;; org mode settings
 (add-hook 'org-mode-hook 'variable-pitch-mode)
 (add-hook! 'org-mode-hook (setq-local line-spacing 0.8))
@@ -98,6 +102,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(org-block ((t (:inherit fixed-pitch))))
+ '(org-block-begin-line ((t (:inherit fixed-pitch))))
  '(org-code ((t (:inherit (shadow fixed-pitch) :height 1.1))))
  '(org-verbatim ((t (:inherit (shadow fixed-pitch) :height 1.1))))
  '(org-document-info ((t (:foreground "dark orange"))))
