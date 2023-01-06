@@ -22,7 +22,7 @@
 ;; accept. For example:
 ;;
 (setq doom-font (font-spec :family "Ligamononoki Nerd Font" :size 13.5 :weight 'bold)
-      doom-variable-pitch-font (font-spec :family "Helvetica" :size 15))
+      doom-variable-pitch-font (font-spec :family "Helvetica" :size 16 :weight 'light))
 
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them

@@ -52,6 +52,7 @@
 (package! ef-themes)
 (package! tldr)
 (package! clippy)
+(package! org-superstar)
 
 ;; try but doesn't take effects
 (package! beacon)

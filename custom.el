@@ -2,16 +2,17 @@
 
 (require 'org)
 
-;; new window to maximized
-;; (add-to-list 'default-frame-alist '(fullscreen . maximized))
+;;new window to maximized
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 ;; switch to new buffer when splitting (vertically and horizontally)
 (global-set-key "\C-x2" (lambda () (interactive)(split-window-vertically) (other-window 1)))
 (global-set-key "\C-x3" (lambda () (interactive)(split-window-horizontally) (other-window 1)))
 
+(global-visual-line-mode t)
+
 ;; set line height
 (setq-default line-spacing 0.4)
-(global-visual-line-mode t)
 
 ;; make latex preview clear
 (setq org-preview-latex-default-process 'dvisvgm)
@@ -25,7 +26,10 @@
 ;; org mode settings
 (add-hook 'org-mode-hook 'variable-pitch-mode)
 (add-hook! 'org-mode-hook (setq-local line-spacing 0.8))
-(setq org-indent-indentation-per-level 4)
+;;(add-hook! 'org-mode-hook (setq-local org-hide-leading-stars nil)
+;;(setq org-hide-leading-stars nil)
+(setq org-indent-indentation-per-level 2)
+;;(setq org-superstar-headline-bullets-list '("*") )
 (setq org-hide-emphasis-markers t)
 ;; (setq org-display-inline-images t)
 ;; (setq org-redisplay-inline-images t)
@@ -34,26 +38,27 @@
 (setq org-fontify-done-headline t)
 ;; org mode latex preview when start up
 (setq org-startup-with-latex-preview 't)
-(setq org-format-latex-options (plist-put org-format-latex-options :scale 1.2))
-(setq org-format-latex-header
-"\\documentclass[leqno]{article}
-\\usepackage[usenames]{color}
-[DEFAULT-PACKAGES]
-[PACKAGES]
-\\pagestyle{empty}             % do not remove
-% The settings below are copied from fullpage.sty
-\\setlength{\\textwidth}{\\paperwidth}
-\\addtolength{\\textwidth}{-3cm}
-\\setlength{\\oddsidemargin}{1.5cm}
-\\addtolength{\\oddsidemargin}{-2.54cm}
-\\setlength{\\evensidemargin}{\\oddsidemargin}
-\\setlength{\\textheight}{\\paperheight}
-\\addtolength{\\textheight}{-\\headheight}
-\\addtolength{\\textheight}{-\\headsep}
-\\addtolength{\\textheight}{-\\footskip}
-\\addtolength{\\textheight}{-3cm}
-\\setlength{\\topmargin}{1.5cm}
-\\addtolength{\\topmargin}{-2.54cm}"
+(setq org-format-latex-options (plist-put org-format-latex-options :scale 1.1))
+;;(setq org-format-latex-header
+;;"\\documentclass[leqno]{article}
+;;\\usepackage[usenames]{color}
+;;[DEFAULT-PACKAGES]
+;;[PACKAGES]
+;;\\pagestyle{empty}             % do not remove
+;;% The settings below are copied from fullpage.sty
+;;\\setlength{\\textwidth}{\\paperwidth}
+;;\\addtolength{\\textwidth}{-3cm}
+;;\\setlength{\\oddsidemargin}{1.5cm}
+;;\\addtolength{\\oddsidemargin}{-2.54cm}
+;;\\setlength{\\evensidemargin}{\\oddsidemargin}
+;;\\setlength{\\textheight}{\\paperheight}
+;;\\addtolength{\\textheight}{-\\headheight}
+;;\\addtolength{\\textheight}{-\\headsep}
+;;\\addtolength{\\textheight}{-\\footskip}
+;;\\addtolength{\\textheight}{-3cm}
+;;\\setlength{\\topmargin}{1.5cm}
+;;\\addtolength{\\topmargin}{-2.54cm}"
+;;)
 ;; Original value was
 ;; "\\documentclass{article}
 ;; \\usepackage[usenames]{color}
@@ -73,13 +78,6 @@
 ;; \\addtolength{\\textheight}{-3cm}
 ;; \\setlength{\\topmargin}{1.5cm}
 ;; \\addtolength{\\topmargin}{-2.54cm}"
-)
-
-
-;; wired, none of below working
-;; (setq org-startup-folded 'contents)
-;; (setq org-startup-folded "fold")
-
 
 ;; automatically show org mode latex preview, work but regenerate preview everytime make it slow
 ;;(use-package! org-fragtog
@@ -103,54 +101,39 @@
  '(org-verbatim ((t (:inherit (shadow fixed-pitch) :height 1.1))))
  '(org-document-info ((t (:foreground "dark orange"))))
  '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
- '(org-document-title ((t (:weight normal :foreground "mac:textColor" :font "Times New Roman" :height 2.0 :underline nil))))
- ;; '(org-done ((t (:inherit fixed-pitch))))
- '(org-drawer ((t (:inherit fixed-pitch))))
+ '(org-document-title ((t (:weight normal :foreground "mac:textColor" :font "NewComputerModern" :height 2.0 :underline nil))))
+ ;;'(org-drawer ((t (:inherit fixed-pitch))))
+ '(org-drawer ((t (:inherit (shadow fixed-pitch)))))
  '(org-indent ((t (:inherit (org-hide fixed-pitch)))))
- ;; '(org-level-1 ((t (:weight normal :foreground "mac:textColor" :font "Helvetica" :height 1.1))))
- ;; '(org-level-1 ((t (:inherit (variable-pitch) :height 1.1))))
- ;; '(org-level-2 ((t (:inherit (variable-pitch) :height 1.1))))
- ;; '(org-level-3 ((t (:inherit (variable-pitch) :height 1.1))))
- ;; '(org-level-4 ((t (:inherit (variable-pitch) :height 1.1))))
- ;; '(org-level-5 ((t (:inherit (variable-pitch) :height 1.1))))
- ;; '(org-level-6 ((t (:inherit (variable-pitch)))))
- ;; '(org-level-7 ((t (:inherit (variable-pitch)))))
- ;; '(org-level-8 ((t (:inherit (variable-pitch)))))
- ;; '(org-level-1 ((t (:weight normal :foreground "mac:textColor" :font "Helvetica" :height 1.1))))
- ;; '(org-level-2 ((t (:weight normal :foreground "mac:textColor" :font "Helvetica" :height 1.1))))
- ;; '(org-level-3 ((t (:weight normal :foreground "mac:textColor" :font "Helvetica" :height 1.1))))
- ;; '(org-level-4 ((t (:weight normal :foreground "mac:textColor" :font "Helvetica" :height 1.1))))
- ;; '(org-level-5 ((t (:weight normal :foreground "mac:textColor" :font "Helvetica" :height 1.1))))
- ;; '(org-level-6 ((t (:weight normal :foreground "mac:textColor" :font "Helvetica"))))
- ;; '(org-level-7 ((t (:weight normal :foreground "mac:textColor" :font "Helvetica"))))
- ;; '(org-level-8 ((t (:weight normal :foreground "mac:textColor" :font "Helvetica"))))
+ '(org-level-1 ((t (:inherit (variable-pitch) :font "NewComputerModern" :height 1.40))))
+ '(org-level-2 ((t (:inherit (variable-pitch) :font "NewComputerModern" :height 1.32))))
+ '(org-level-3 ((t (:inherit (variable-pitch) :font "NewComputerModern" :height 1.24))))
+ '(org-level-4 ((t (:inherit (variable-pitch) :font "NewComputerModern" :height 1.16))))
+ '(org-level-5 ((t (:inherit (variable-pitch) :font "NewComputerModern" :height 1.08))))
+ '(org-level-6 ((t (:inherit (variable-pitch)))))
+ '(org-level-7 ((t (:inherit (variable-pitch)))))
+ '(org-level-8 ((t (:inherit (variable-pitch)))))
  '(org-link ((t (:foreground "royal blue" :underline t))))
  '(org-meta-line ((t (:inherit (font-lock-comment-face fixed-pitch)))))
  '(org-property-value ((t (:inherit fixed-pitch))) t)
  '(org-special-keyword ((t (:inherit (font-lock-comment-face fixed-pitch)))))
  '(org-table ((t (:inherit fixed-pitch :foreground "#83a598"))))
  '(org-tag ((t (:inherit (shadow variable-pitch)))))
- ;; '(org-todo ((t (:inherit fixed-pitch))))
+ '(org-todo ((t (:inherit variable-pitch :height 1.0))))
+ '(org-done ((t (:inherit variable-pitch :height 1.0))))
+ '(org-headline-todo ((t (:height 1.0))))
+ '(org-headline-done ((t (:height 1.0 :strike-through t))))
  ;; so that the line-number column remain constat width
  '(line-number ((t (:inherit (shadow fixed-pitch)))))
 )
 
-(defun my-org-faces ()
-    (set-face-attribute 'org-todo nil :inherit 'variable-pitch :height 1.0)
-    (set-face-attribute 'org-done nil :inherit 'variable-pitch :height 1.0)
-;;    (set-face-attribute 'org-headline-todo nil :inherit 'variable-pitch :height 1.0)
-;;    (set-face-attribute 'org-headline-done nil :inherit 'variable-pitch :height 1.0)
-    (set-face-attribute 'org-headline-todo nil :height 1.0)
-    (set-face-attribute 'org-headline-done nil :height 1.0 :strike-through t)
-    (set-face-attribute 'org-level-1 nil :inherit 'variable-pitch :font "Times New Roman" :height 1.5)
-    (set-face-attribute 'org-level-2 nil :inherit 'variable-pitch)
-    (set-face-attribute 'org-level-3 nil :inherit 'variable-pitch)
-    (set-face-attribute 'org-level-4 nil :inherit 'variable-pitch)
-    (set-face-attribute 'org-level-5 nil :inherit 'variable-pitch)
-    (set-face-attribute 'org-level-6 nil :inherit 'variable-pitch)
-    (set-face-attribute 'org-level-7 nil :inherit 'variable-pitch)
-    (set-face-attribute 'org-level-8 nil :inherit 'variable-pitch)
-)
-(add-hook 'org-mode-hook #'my-org-faces)
+;; (setq org-startup-folded 'show2levels)
+(setq org-startup-folded 'showall)
+(setq org-startup-indented t)
 
-(setq org-startup-folded t)
+(after! org
+  (setq org-hide-leading-stars nil
+        org-indent-mode-turns-on-hiding-stars nil
+        org-adapt-indentation 0
+  )
+)
