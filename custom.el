@@ -28,7 +28,7 @@
 (add-hook! 'org-mode-hook (setq-local line-spacing 0.8))
 ;;(add-hook! 'org-mode-hook (setq-local org-hide-leading-stars nil)
 ;;(setq org-hide-leading-stars nil)
-(setq org-indent-indentation-per-level 2)
+(setq org-indent-indentation-per-level 4)
 ;;(setq org-superstar-headline-bullets-list '("*") )
 (setq org-hide-emphasis-markers t)
 ;; (setq org-display-inline-images t)
@@ -38,7 +38,8 @@
 (setq org-fontify-done-headline t)
 ;; org mode latex preview when start up
 (setq org-startup-with-latex-preview 't)
-(setq org-format-latex-options (plist-put org-format-latex-options :scale 1.1))
+(setq org-format-latex-options (plist-put org-format-latex-options :scale 1.1 ))
+(setq org-format-latex-options (plist-put org-format-latex-options :background "Transparent"))
 ;;(setq org-format-latex-header
 ;;"\\documentclass[leqno]{article}
 ;;\\usepackage[usenames]{color}
@@ -105,11 +106,11 @@
  ;;'(org-drawer ((t (:inherit fixed-pitch))))
  '(org-drawer ((t (:inherit (shadow fixed-pitch)))))
  '(org-indent ((t (:inherit (org-hide fixed-pitch)))))
- '(org-level-1 ((t (:inherit (variable-pitch) :font "NewComputerModern" :height 1.40))))
- '(org-level-2 ((t (:inherit (variable-pitch) :font "NewComputerModern" :height 1.32))))
- '(org-level-3 ((t (:inherit (variable-pitch) :font "NewComputerModern" :height 1.24))))
- '(org-level-4 ((t (:inherit (variable-pitch) :font "NewComputerModern" :height 1.16))))
- '(org-level-5 ((t (:inherit (variable-pitch) :font "NewComputerModern" :height 1.08))))
+ '(org-level-1 ((t (:inherit (variable-pitch) :font "NewComputerModern" :height 1.4))))
+ '(org-level-2 ((t (:inherit (variable-pitch) :font "NewComputerModern" :height 1.35))))
+ '(org-level-3 ((t (:inherit (variable-pitch) :font "NewComputerModern" :height 1.3))))
+ '(org-level-4 ((t (:inherit (variable-pitch) :font "NewComputerModern" :height 1.25))))
+ '(org-level-5 ((t (:inherit (variable-pitch) :font "NewComputerModern" :height 1.2))))
  '(org-level-6 ((t (:inherit (variable-pitch)))))
  '(org-level-7 ((t (:inherit (variable-pitch)))))
  '(org-level-8 ((t (:inherit (variable-pitch)))))
@@ -118,7 +119,7 @@
  '(org-property-value ((t (:inherit fixed-pitch))) t)
  '(org-special-keyword ((t (:inherit (font-lock-comment-face fixed-pitch)))))
  '(org-table ((t (:inherit fixed-pitch :foreground "#83a598"))))
- '(org-tag ((t (:inherit (shadow variable-pitch)))))
+ '(org-tag ((t (:inherit (shadow variable-pitch) :foreground "#66cdaa" :slant italic))))
  '(org-todo ((t (:inherit variable-pitch :height 1.0))))
  '(org-done ((t (:inherit variable-pitch :height 1.0))))
  '(org-headline-todo ((t (:height 1.0))))
@@ -137,3 +138,11 @@
         org-adapt-indentation 0
   )
 )
+
+(defun set-org-margins ()
+  "Setup gaps on left and right sides."
+  (setq left-margin-width 10
+        right-margin-width 10)
+  (set-window-buffer nil (current-buffer)))
+
+(add-hook! 'org-mode-hook (set-org-margins))
