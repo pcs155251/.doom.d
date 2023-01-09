@@ -127,7 +127,7 @@
  '(org-meta-line ((t (:inherit (font-lock-comment-face fixed-pitch)))))
  '(org-property-value ((t (:inherit fixed-pitch))) t)
  '(org-special-keyword ((t (:inherit (font-lock-comment-face fixed-pitch)))))
- '(org-table ((t (:inherit fixed-pitch :foreground "#83a598"))))
+ '(org-table ((t (:inherit fixed-pitch :foreground "#c7a07f" :height 1.1))))
  '(org-tag ((t (:inherit (shadow variable-pitch) :foreground "#66cdaa" :slant italic))))
  '(org-todo ((t (:inherit variable-pitch :height 1.0))))
  '(org-verbatim ((t (:inherit (shadow fixed-pitch) :height 1.1))))
