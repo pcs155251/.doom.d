@@ -43,7 +43,7 @@
 (setq org-fontify-todo-headline t)
 (setq org-fontify-done-headline t)
 ;; org mode latex preview when start up
-(setq org-startup-with-latex-preview 't)
+;; (setq org-startup-with-latex-preview 't)
 (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.1 ))
 (setq org-format-latex-options (plist-put org-format-latex-options :background "Transparent"))
 ;;(setq org-format-latex-header
@@ -155,9 +155,10 @@
   (org-roam-capture-templates
    '(("d" "default" plain
       "%?" :target
-      (file+head "pages/${slug}.org" "${title}\n")
+      (file+head "pages/${slug}.org" "#+title: ${title}\n")
       :unnarrowed t)))
   :config
+  ;; from https://org-roam.discourse.group/t/modify-org-roam-node-find-to-list-nodes-with-a-given-filetag/2651, not sure what is its usage
   (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
   (org-roam-db-autosync-mode)
 )
