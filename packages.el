@@ -53,6 +53,7 @@
 (package! tldr)
 (package! clippy)
 (package! org-superstar)
+(package! olivetti)
 
 ;; try but doesn't take effects
 (package! beacon)

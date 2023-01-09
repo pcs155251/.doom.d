@@ -29,6 +29,8 @@
 
 ;; org mode settings
 (add-hook 'org-mode-hook 'variable-pitch-mode)
+(add-hook 'org-mode-hook 'olivetti-mode)
+(setq olivetti-body-width 120)
 (add-hook! 'org-mode-hook (setq-local line-spacing 0.8))
 ;;(add-hook! 'org-mode-hook (setq-local org-hide-leading-stars nil)
 ;;(setq org-hide-leading-stars nil)
