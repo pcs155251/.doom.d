@@ -162,4 +162,8 @@
   (org-roam-db-autosync-mode)
 )
 
-(add-hook! 'org-mode-hook (set-org-margins))
+(defface org-link-id '((t :inherit org-tag))
+  "Face for Org-Mode links starting with id:."
+  :group 'org-faces
+)
+(org-link-set-parameters "id" :face 'org-link-id)
