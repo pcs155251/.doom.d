@@ -148,5 +148,18 @@
 ;; disable doom emacs tab behavior
 (after! evil-org (remove-hook 'org-tab-first-hook #'+org-cycle-only-current-subtree-h))
 
+(use-package! org-roam
+  :custom
+  (org-roam-directory "/Volumes/Macintosh HD - Data/Syncthing/public/test/")
+  (org-roam-dailies-directory "journals/")
+  (org-roam-capture-templates
+   '(("d" "default" plain
+      "%?" :target
+      (file+head "pages/${slug}.org" "${title}\n")
+      :unnarrowed t)))
+  :config
+  (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
+  (org-roam-db-autosync-mode)
+)
 
 (add-hook! 'org-mode-hook (set-org-margins))
