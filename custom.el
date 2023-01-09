@@ -155,7 +155,7 @@
   (org-roam-capture-templates
    '(("d" "default" plain
       "%?" :target
-      (file+head "pages/${slug}.org" "#+title: ${title}\n")
+      (file+head "pages/${title}.org" "#+title: ${title}\n")
       :unnarrowed t)))
   :config
   ;; from https://org-roam.discourse.group/t/modify-org-roam-node-find-to-list-nodes-with-a-given-filetag/2651, not sure what is its usage
