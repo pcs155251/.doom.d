@@ -145,5 +145,8 @@
   )
 )
 
+;; disable doom emacs tab behavior
+(after! evil-org (remove-hook 'org-tab-first-hook #'+org-cycle-only-current-subtree-h))
+
 
 (add-hook! 'org-mode-hook (set-org-margins))
