@@ -97,27 +97,29 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   '("1f77417305730758d30a9faea8872c64fe680ad708af507989e8d1a35f4125f3" "ae7ffd67c75705c76dcfd66fa212abdcdd62ab5be2635371b31dc4de13f40668" "1dbbf33c64f2fa781b0f68494c0edee535d3a9f0c7e106b047d21c719c779a30" "25c9807d70ac15057821f8b830ac93a80ca2b2beca6f1e9e7f77cbc5578e21b4" default)))
+   '("d23a27f5abaeb518ddf1b241d1af95d1790702ad0a27b345b580abaa3dc588a2" "1f77417305730758d30a9faea8872c64fe680ad708af507989e8d1a35f4125f3" "ae7ffd67c75705c76dcfd66fa212abdcdd62ab5be2635371b31dc4de13f40668" "1dbbf33c64f2fa781b0f68494c0edee535d3a9f0c7e106b047d21c719c779a30" "25c9807d70ac15057821f8b830ac93a80ca2b2beca6f1e9e7f77cbc5578e21b4" default)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(line-number ((t (:inherit (shadow fixed-pitch)))))
  '(org-block ((t (:inherit fixed-pitch))))
  '(org-block-begin-line ((t (:inherit fixed-pitch))))
  '(org-code ((t (:inherit (shadow fixed-pitch) :height 1.1))))
- '(org-verbatim ((t (:inherit (shadow fixed-pitch) :height 1.1))))
  '(org-document-info ((t (:foreground "dark orange"))))
  '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
  '(org-document-title ((t (:weight normal :foreground "mac:textColor" :font "NewComputerModern" :height 2.0 :underline nil))))
- ;;'(org-drawer ((t (:inherit fixed-pitch))))
+ '(org-done ((t (:inherit variable-pitch :height 1.0))))
  '(org-drawer ((t (:inherit (shadow fixed-pitch)))))
+ '(org-headline-done ((t (:height 1.0 :strike-through t))))
+ '(org-headline-todo ((t (:height 1.0))))
  '(org-indent ((t (:inherit (org-hide fixed-pitch)))))
- '(org-level-1 ((t (:inherit (variable-pitch) :font "NewComputerModern" :height 1.4))))
+ '(org-level-1 ((t (:inherit (variable-pitch) :font "NewComputerModern" :height 1.40 :foreground "#9ac2ff"))))
  '(org-level-2 ((t (:inherit (variable-pitch) :font "NewComputerModern" :height 1.35))))
- '(org-level-3 ((t (:inherit (variable-pitch) :font "NewComputerModern" :height 1.3))))
- '(org-level-4 ((t (:inherit (variable-pitch) :font "NewComputerModern" :height 1.25))))
- '(org-level-5 ((t (:inherit (variable-pitch) :font "NewComputerModern" :height 1.2))))
+ '(org-level-3 ((t (:inherit (variable-pitch) :font "NewComputerModern" :height 1.30 :foreground "#9ac2ff"))))
+ '(org-level-4 ((t (:inherit (variable-pitch) :font "NewComputerModern" :height 1.25 :foreground "#9ac2ff"))))
+ '(org-level-5 ((t (:inherit (variable-pitch) :font "NewComputerModern" :height 1.20 :foreground "#9ac2ff"))))
  '(org-level-6 ((t (:inherit (variable-pitch)))))
  '(org-level-7 ((t (:inherit (variable-pitch)))))
  '(org-level-8 ((t (:inherit (variable-pitch)))))
@@ -128,17 +130,14 @@
  '(org-table ((t (:inherit fixed-pitch :foreground "#83a598"))))
  '(org-tag ((t (:inherit (shadow variable-pitch) :foreground "#66cdaa" :slant italic))))
  '(org-todo ((t (:inherit variable-pitch :height 1.0))))
- '(org-done ((t (:inherit variable-pitch :height 1.0))))
- '(org-headline-todo ((t (:height 1.0))))
- '(org-headline-done ((t (:height 1.0 :strike-through t))))
- ;; so that the line-number column remain constat width
- '(line-number ((t (:inherit (shadow fixed-pitch)))))
+ '(org-verbatim ((t (:inherit (shadow fixed-pitch) :height 1.1))))
 )
 
 ;; (setq org-startup-folded 'show2levels)
 (setq org-startup-folded 'showall)
 (setq org-startup-indented t)
 
+;; settings for indentation
 (after! org
   (setq org-hide-leading-stars nil
         org-indent-mode-turns-on-hiding-stars nil
@@ -146,10 +145,5 @@
   )
 )
 
-(defun set-org-margins ()
-  "Setup gaps on left and right sides."
-  (setq left-margin-width 10
-        right-margin-width 10)
-  (set-window-buffer nil (current-buffer)))
 
 (add-hook! 'org-mode-hook (set-org-margins))
