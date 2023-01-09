@@ -116,7 +116,7 @@
  '(org-headline-todo ((t (:height 1.0))))
  '(org-indent ((t (:inherit (org-hide fixed-pitch)))))
  '(org-level-1 ((t (:inherit (variable-pitch) :font "NewComputerModern" :height 1.40 :foreground "#9ac2ff"))))
- '(org-level-2 ((t (:inherit (variable-pitch) :font "NewComputerModern" :height 1.35))))
+ '(org-level-2 ((t (:inherit (variable-pitch) :font "NewComputerModern" :height 1.35 :foreground "#9ac2ff"))))
  '(org-level-3 ((t (:inherit (variable-pitch) :font "NewComputerModern" :height 1.30 :foreground "#9ac2ff"))))
  '(org-level-4 ((t (:inherit (variable-pitch) :font "NewComputerModern" :height 1.25 :foreground "#9ac2ff"))))
  '(org-level-5 ((t (:inherit (variable-pitch) :font "NewComputerModern" :height 1.20 :foreground "#9ac2ff"))))
